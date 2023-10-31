@@ -81,16 +81,16 @@ module chuck_ring() {
 
 module clamper_half() {
   ff2 = 50; // "fudgefactor factor"
-  translate([ 0, RADIUS_OUTER - ff2 * FUDGE, 0 ]) {
+  translate([ 0, RADIUS_OUTER - ff2 * FUDGE - 3, 0 ]) {
     difference() {
       // POSITIVE
-      cube([ THICKNESS / 2, THICKNESS + ff2 * FUDGE, THICKNESS ]);
+      cube([ THICKNESS / 1, 5+THICKNESS + ff2 * FUDGE, THICKNESS ]);
       // NEGATIVE
       translate([
-        -1 * FUDGE, (ff2 / 2) * FUDGE + THICKNESS / 2, FUDGE + THICKNESS / 2
+        -1 * FUDGE, (ff2 / 2) * FUDGE + 4 + THICKNESS / 2, FUDGE + THICKNESS / 2
       ]) {
         rotate([ 0, 90, 0 ]) {
-          cylinder(h = THICKNESS / 2 + 2 * FUDGE, r = BOLT / 2, center = false);
+          cylinder(h = THICKNESS / 1 + 2 * FUDGE, r = BOLT / 2, center = false);
         }
       }
     }
@@ -110,13 +110,14 @@ module everything() {
       -22 + RADIUS_OUTER, //-FUDGE*100,
       -BAR + RADIUS_OUTER, 0
     ]) {
-      cube([ BAR_LEN, BAR, THICKNESS ], center = false);
+      cube([ BAR_LEN+10, BAR, THICKNESS ], center = false);
     }
     chuck_ring_negative();
 
     // BOLT HOLE IN BAR
+    POSTFIX_1 = 3.75;
     translate(
-        [ NORMAL_TO_DEPTHHOLE + RADIUS_INNER, RADIUS_INNER - BOLT / 2, 0 ]) {
+        [ POSTFIX_1+NORMAL_TO_DEPTHHOLE + RADIUS_INNER, RADIUS_INNER - BOLT / 2, 0 ]) {
       cylinder(h = THICKNESS + FUDGE * 20, r = BOLT / 2, center = false);
     }
   }
@@ -132,6 +133,8 @@ module everything() {
 difference() {
   everything();
   cleanup();
+  // slap in in there once more to clean up more disorganized crap
+  chuck_ring_negative();
 }
 
 // mirror([0,0,1]){blackhole();}
