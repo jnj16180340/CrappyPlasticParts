@@ -1,3 +1,7 @@
+
+# IkeaChairBracket
+That plastic thingy that keeps the bars flush against the chair bottom, idk
+
 # HarborFreightDrillPress
 
 Crap related to `Central Machinery 5 Speed Bench Drill Press`:
