@@ -2,16 +2,18 @@ include <BOSL/constants.scad>
 use <BOSL/transforms.scad>
 use <BOSL/masks.scad>
 
-
-CUBE = 55.0;       // cube side
-BAR = 16.25;       // bar goes through it 
-SCREW_TOP = 10.0;  // screw passes through here
-SCREW_BOT = 5.0;   // screw head
+BEEF = 4;
+BAR = 16.25/2;       // bar goes through it 
+CUBE = BEEF * BAR;       // cube side
+SCREW_TOP = 10.0/2;  // screw passes through here
+SCREW_BOT = 5.0/2;   // screw head
 FUDGE = 1.0;       // FF
-QUAL=50; // really fn
+
+$fa = 1;
+$fs = 0.5;
 
 module body() {
-    fillet(fillet=5, size=[CUBE,CUBE,CUBE], $fn=QUAL) {
+    fillet(fillet=5, size=[CUBE,CUBE,CUBE]) {
       cube(size=CUBE, center=true);
     }
 }
