@@ -1,6 +1,7 @@
 
 # IkeaChairBracket
-That plastic thingy that keeps the bars flush against the chair bottom, idk
+
+Them little breaky shits off an Ikea `Vilmar` chair. NB all 4 need to be replaced or you are doomed to sit askew
 
 # HarborFreightDrillPress
 
