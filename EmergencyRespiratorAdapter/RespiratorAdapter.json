@@ -1,0 +1,15 @@
+{
+    "parameterSets": {
+        "design default values": {
+            "$fn": "96",
+            "flange_radius": "15",
+            "mount_z": "-2",
+            "trim_height": "80",
+            "trim_outer_r": "100",
+            "tube_inner_r": "6",
+            "tube_length": "25",
+            "tube_outer_r": "10"
+        }
+    },
+    "fileFormatVersion": "1"
+}
